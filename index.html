@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="刘明湖的个人网站与作品集，记录产品工作、项目经历、复杂系统设计和个人思考。"
+    />
+    <title>刘明湖 | 个人网站与作品集</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="返回首页">
+        <span class="brand-mark">LMH</span>
+        <span>
+          <strong>刘明湖</strong>
+          <small>Product / Systems / Delivery</small>
+        </span>
+      </a>
+      <button class="menu-button" type="button" data-menu-button aria-label="打开导航">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+      </button>
+      <nav class="site-nav" data-nav aria-label="主导航">
+        <a href="#thinking">产品思考</a>
+        <a href="#capability">能力模型</a>
+        <a href="#cases">精选案例</a>
+        <a href="#project-bank">项目库</a>
+        <a href="#experience">经历</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-media" aria-hidden="true"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Product Thinking / SaaS / IoT / Service Systems</p>
+          <h1 id="hero-title">
+            <span>先把现场走通</span>
+            <span>再把系统做实</span>
+          </h1>
+          <p class="hero-lede">
+            <span>我是刘明湖，做过企业 SaaS、智能硬件与现场服务之间的产品连接。</span>
+            <span>习惯先看清人、流程、规则和异常，再进入方案、原型和交付。</span>
+          </p>
+          <div class="hero-actions" aria-label="主要操作">
+            <a class="button primary" href="#cases">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              看精选案例
+            </a>
+            <a class="button secondary" href="./assets/resume/liu-minghu-resume-20260507-cn.pdf" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 21h14" /></svg>
+              下载简历
+            </a>
+          </div>
+          <dl class="hero-meta" aria-label="求职信息">
+            <div>
+              <dt>目标岗位</dt>
+              <dd>项目型产品经理 / 产品 Owner</dd>
+            </div>
+            <div>
+              <dt>目标城市</dt>
+              <dd>深圳 / 广州</dd>
+            </div>
+            <div>
+              <dt>期望薪资</dt>
+              <dd>20K-30K</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="fact-band" aria-label="核心履历数据">
+        <div class="section-inner fact-grid">
+          <article>
+            <strong>5 年+</strong>
+            <span>产品与项目经验</span>
+          </article>
+          <article>
+            <strong>15+</strong>
+            <span>类智能设备统一管理经验</span>
+          </article>
+          <article>
+            <strong>17 天</strong>
+            <span>高压交付 400 台设备项目经验</span>
+          </article>
+          <article>
+            <strong>3 条</strong>
+            <span>行李寄存业务线整合经验</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section profile-section" aria-labelledby="profile-title">
+        <div class="section-inner profile-grid">
+          <div>
+            <p class="section-kicker">Positioning</p>
+            <h2 id="profile-title">我适合解决什么问题</h2>
+            <p class="section-lede">
+              我适合处理那些已经在现场反复发生、但还没有被系统稳定接住的问题：多角色协作、线下交接、设备状态、权限边界、异常处理和数据追踪。我会先把问题放回真实场景里看，再把角色、流程、规则、状态和责任整理清楚，推进成可开发、可运营、可验收的方案。
+            </p>
+          </div>
+          <figure class="profile-card">
+            <img src="./assets/profile-photo.jpeg" alt="刘明湖证件照" />
+            <figcaption>
+              <strong>刘明湖</strong>
+              <span>B 端 SaaS / IoT / 平台型产品</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section thinking-section" id="thinking" aria-labelledby="thinking-title">
+        <div class="section-inner thinking-layout">
+          <div>
+            <p class="section-kicker">Product Thinking</p>
+            <h2 id="thinking-title">产品思考</h2>
+          </div>
+          <div class="thinking-panel">
+            <p>
+              我不是一开始就会做产品的人。以前我很容易急着给答案，后来慢慢把这种习惯转成一套更克制的产品判断：先找到真实场景，再判断系统是否真的需要增加入口、状态、角色和规则，最后把风险、成本和业务阶段摊开做取舍。
+            </p>
+            <button class="text-link" type="button" data-open-reflection>查看完整思考</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section muted" id="capability" aria-labelledby="capability-title">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="section-kicker">Capability Model</p>
+            <h2 id="capability-title">能力模型</h2>
+            <p>这些是我在不同项目里反复使用的工作能力。</p>
+          </div>
+          <div class="capability-grid">
+            <article class="capability-card">
+              <span class="card-index">01</span>
+              <h3>复杂业务抽象</h3>
+              <p>从线下高频动作中拆出角色、权限、状态、规则和异常路径，形成可开发、可运营、可复用的产品结构。</p>
+            </article>
+            <article class="capability-card">
+              <span class="card-index">02</span>
+              <h3>企业级 SaaS 设计</h3>
+              <p>能把客户定制需求转成标准模块，覆盖后台管理、权限模型、数据流、通知机制和验收口径。</p>
+            </article>
+            <article class="capability-card">
+              <span class="card-index">03</span>
+              <h3>软硬件一体交付</h3>
+              <p>处理过智能柜、称重设备、RFID、门禁、AI 打卡机等场景，理解设备状态、网络异常和现场联调。</p>
+            </article>
+            <article class="capability-card">
+              <span class="card-index">04</span>
+              <h3>项目推进与风险控制</h3>
+              <p>在多项目并行、客户验收和硬件交付压力下，统筹需求评审、排期拆解、风险识别、上线验收。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="cases" aria-labelledby="cases-title">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="section-kicker">Selected Cases</p>
+            <h2 id="cases-title">精选案例</h2>
+          </div>
+          <div class="case-grid">
+            <article class="case-card" data-case-card="ideal">
+              <img src="./assets/cases/ideal-cabinet-live.jpg" alt="企业无人前台智能柜现场图" />
+              <div class="case-body">
+                <p class="case-type">企业 SaaS / 智能柜 / 智慧行政</p>
+                <h3>企业无人前台 + 智能称重领用柜</h3>
+                <p>把访客储物、物品交接、资产上下发、耗材领用等线下动作整理为标准 SaaS 流程。</p>
+                <button class="text-link" type="button" data-open-case="ideal">查看案例拆解</button>
+              </div>
+            </article>
+            <article class="case-card" data-case-card="locker">
+              <img src="./assets/cases/locker-site-live.jpg" alt="行李寄存柜现场图" />
+              <div class="case-body">
+                <p class="case-type">平台产品 / 行李寄存 / 多角色协同</p>
+                <h3>行李综合服务平台：无忧存</h3>
+                <p>将人工寄存点、智能柜、用户订单和商户履约整合进统一平台，支撑多供给方式。</p>
+                <button class="text-link" type="button" data-open-case="locker">查看案例拆解</button>
+              </div>
+            </article>
+            <article class="case-card evidence-pending" data-case-card="anker">
+              <img src="./assets/cases/anker-office-lounge.jpg" alt="高端企业办公区示意图" />
+              <div class="case-body">
+                <p class="case-type">高压交付 / 多团队协同 / 风险控制</p>
+                <h3>安克创新储物柜及耗材管理项目</h3>
+                <p>以 17 天、400 台设备交付为核心，突出排期压缩、风险识别、现场协同和验收管理。</p>
+                <button class="text-link" type="button" data-open-case="anker">查看案例拆解</button>
+              </div>
+            </article>
+            <article class="case-card" data-case-card="game-task">
+              <div class="case-visual case-visual--game" aria-hidden="true">
+                <div class="task-card">
+                  <span>任务广场</span>
+                  <strong>游戏圈投稿</strong>
+                  <em>审核中</em>
+                </div>
+                <div class="task-flow">
+                  <span>发布</span>
+                  <span>投稿</span>
+                  <span>审核</span>
+                  <span>奖励</span>
+                </div>
+              </div>
+              <div class="case-body">
+                <p class="case-type">内容任务 / 作者激励 / 运营后台</p>
+                <h3>微信游戏圈任务系统</h3>
+                <p>把游戏内容供给、作者投稿、审核反馈和奖励校验整理成一套可运营的任务机制。</p>
+                <button class="text-link" type="button" data-open-case="game-task">查看案例拆解</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section project-bank" id="project-bank" aria-labelledby="project-bank-title">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="section-kicker">Project Bank</p>
+            <h2 id="project-bank-title">项目库</h2>
+          </div>
+          <div class="filter-bar" role="tablist" aria-label="项目筛选">
+            <button class="filter-button active" type="button" data-filter="all">全部</button>
+            <button class="filter-button" type="button" data-filter="saas">B 端 SaaS</button>
+            <button class="filter-button" type="button" data-filter="iot">IoT</button>
+            <button class="filter-button" type="button" data-filter="platform">平台产品</button>
+            <button class="filter-button" type="button" data-filter="operation">运营平台</button>
+            <button class="filter-button" type="button" data-filter="delivery">交付管理</button>
+            <button class="filter-button" type="button" data-filter="early">早期项目</button>
+          </div>
+          <div class="project-list" data-project-list></div>
+        </div>
+      </section>
+
+      <section class="section muted" id="experience" aria-labelledby="experience-title">
+        <div class="section-inner experience-layout">
+          <div class="section-heading">
+            <p class="section-kicker">Experience</p>
+            <h2 id="experience-title">经历主线</h2>
+            <p>从早期产品规划，到内容生态工具，再到企业 SaaS 与智能硬件交付，能力重心逐步从“把需求做出来”走向“把复杂现场推进落地”。</p>
+          </div>
+          <ol class="timeline">
+            <li>
+              <time>2023.02 至今</time>
+              <strong>深圳市沐腾科技有限公司</strong>
+              <span>产品 / 项目经理，负责智能柜、SaaS、IoT 与多项目交付。</span>
+            </li>
+            <li>
+              <time>2021.09 - 2023.02</time>
+              <strong>北京中软国际科技服务有限公司</strong>
+              <span>产品策划，参与微信游戏生态内容任务、运营工具与增长项目。</span>
+            </li>
+            <li>
+              <time>2021.03 - 2021.09</time>
+              <strong>蓝亚信息技术有限公司</strong>
+              <span>产品经理，负责早期产品规划、原型和需求落地。</span>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="section-inner contact-layout">
+          <div class="contact-copy">
+            <p class="section-kicker">Contact</p>
+            <h2 id="contact-title">联系我</h2>
+            <p class="section-lede">
+              如果你想进一步了解我的项目经历、作品集细节或合作机会，可以通过电话、微信或邮箱联系我。
+            </p>
+            <div class="contact-actions">
+              <button class="button primary" type="button" data-copy="18370946199">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.77.59 2.61a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.47-1.11a2 2 0 0 1 2.11-.45c.84.27 1.71.47 2.61.59A2 2 0 0 1 22 16.92z" /></svg>
+                复制电话 / 微信
+              </button>
+              <button class="button secondary light" type="button" data-copy="869474034@qq.com">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 7l8 6 8-6" /></svg>
+                复制邮箱
+              </button>
+              <button class="button secondary light" type="button" data-open-qr>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h3v3h-3zM18 18h3v3h-3zM18 14h3" /></svg>
+                查看微信
+              </button>
+              <a class="button secondary light" href="./assets/resume/liu-minghu-resume-20260507-cn.pdf" target="_blank" rel="noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M5 21h14" /></svg>
+                查看简历
+              </a>
+            </div>
+          </div>
+          <aside class="contact-card" aria-label="联系方式">
+            <div class="contact-card-main">
+              <button class="qr-preview" type="button" data-open-qr aria-label="放大查看微信二维码">
+                <img src="./assets/contact/wechat-qr.jpg" alt="微信二维码" />
+                <span>点击放大查看</span>
+              </button>
+              <div class="contact-identity">
+                <span class="contact-label">微信 / 电话</span>
+                <strong>刘明湖</strong>
+                <p>18370946199</p>
+                <small>可备注“作品集 / 面试沟通”</small>
+              </div>
+            </div>
+            <dl class="contact-list">
+              <div>
+                <dt>电话 / 微信</dt>
+                <dd>18370946199</dd>
+              </div>
+              <div>
+                <dt>邮箱</dt>
+                <dd class="contact-email">869474034@qq.com</dd>
+              </div>
+              <div>
+                <dt>城市</dt>
+                <dd>深圳 / 广州</dd>
+              </div>
+              <div>
+                <dt>方向</dt>
+                <dd>产品 / 项目交付</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>刘明湖个人网站与作品集 2026</span>
+      <a href="#top">返回顶部</a>
+    </footer>
+
+    <dialog class="case-dialog" data-case-dialog aria-labelledby="dialog-title">
+      <button class="dialog-close" type="button" data-close-case aria-label="关闭案例详情">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+      </button>
+      <div class="dialog-content" data-dialog-content></div>
+    </dialog>
+
+    <dialog class="qr-dialog" data-qr-dialog aria-labelledby="qr-dialog-title">
+      <button class="dialog-close" type="button" data-close-qr aria-label="关闭微信二维码">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+      </button>
+      <div class="qr-dialog-content">
+        <p class="section-kicker">Wechat</p>
+        <h2 id="qr-dialog-title">微信二维码</h2>
+        <img src="./assets/contact/wechat-qr.jpg" alt="刘明湖微信二维码大图" />
+        <p>微信 / 电话：18370946199</p>
+        <button class="qr-close-action" type="button" data-close-qr>关闭</button>
+      </div>
+    </dialog>
+
+    <div class="toast" data-toast role="status" aria-live="polite"></div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
