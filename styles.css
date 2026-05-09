@@ -902,13 +902,14 @@ h1 span {
 
 .contact-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  grid-template-columns: minmax(130px, 0.9fr) minmax(210px, 1.25fr);
+  gap: 12px;
   margin: 18px 0 0;
 }
 
 .contact-list div {
-  padding: 14px;
+  min-width: 0;
+  padding: 14px 16px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--radius);
   background: rgba(0, 0, 0, 0.14);
@@ -926,6 +927,9 @@ h1 span {
 }
 
 .contact-email {
+  display: block;
+  font-size: 15px;
+  line-height: 1.35;
   white-space: nowrap;
 }
 
@@ -1266,6 +1270,14 @@ h1 span {
   .contact-grid,
   .contact-layout {
     align-items: start;
+  }
+
+  .contact-section .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card {
+    justify-self: start;
   }
 
   .timeline {
