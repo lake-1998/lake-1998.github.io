@@ -710,7 +710,14 @@ h1 span {
   font-size: 13px;
 }
 
-.project-item .text-link {
+.case-actions,
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.project-actions {
   margin-top: auto;
 }
 
@@ -1226,6 +1233,15 @@ h1 span {
   background: var(--teal);
   content: "";
   transform: translateY(-50%);
+}
+
+.inline-resource-link {
+  color: var(--teal);
+  font-weight: 800;
+}
+
+.inline-resource-link:hover {
+  color: var(--teal-dark);
 }
 
 .toast {

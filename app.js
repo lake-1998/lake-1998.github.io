@@ -94,6 +94,7 @@ const cases = {
   },
   "game-task": {
     title: "微信游戏圈任务系统",
+    prototypeUrl: "https://58q15c.axshare.com/",
     summary:
       "围绕微信游戏内容社区的内容供给问题，把任务发布、作者投稿、审核反馈和奖励校验整理成一套可持续运营的任务系统。",
     blocks: [
@@ -187,6 +188,7 @@ const projects = [
     title: "微信游戏圈任务系统",
     type: "C 端社区 / B 端后台 / ADM",
     tags: ["platform", "operation"],
+    prototypeUrl: "https://58q15c.axshare.com/",
     summary:
       "围绕微信游戏内容社区的供给不足问题，设计任务发布、作者激励、内容审核和运营管理能力。",
     points: [
@@ -201,6 +203,7 @@ const projects = [
     title: "视频号定向热点征集",
     type: "内容增长 / 作者激励 / 运营后台",
     tags: ["operation", "platform"],
+    prototypeUrl: "https://ot8a0y.axshare.com/",
     summary:
       "面向微信视频号游戏垂类的内容增长需求，设计定向征集机制，帮助运营团队快速组织优质作者围绕指定热点生产内容。",
     points: [
@@ -229,6 +232,7 @@ const projects = [
     title: "工业物联网设备管理系统",
     type: "设备接入 / 监控大屏 / 工单管理",
     tags: ["iot", "saas"],
+    prototypeUrl: "https://p162fu.axshare.com/",
     summary:
       "面向传统制造业工厂的设备运营需求，规划设备接入、监控大屏、告警、维修和工单管理能力。",
     points: [
@@ -243,6 +247,7 @@ const projects = [
     title: "地铁便民拾物招领与寄存服务柜",
     type: "公共服务 / 柜体服务 / 地铁场景",
     tags: ["iot", "delivery"],
+    prototypeUrl: "https://utix05.axshare.com/",
     summary:
       "面向地铁站内便民服务场景，设计失物招领、寄存、雨伞借还和便民物品借领等多种柜体服务。",
     points: [
@@ -355,6 +360,7 @@ const projects = [
     title: "法务工单协同项目",
     type: "工单协同 / 企业内控 / 流程留痕",
     tags: ["saas"],
+    prototypeUrl: "https://cllcth.axshare.com/",
     summary:
       "围绕企业法务协同场景，规划工单提交、分派、处理、反馈和记录留存流程。",
     points: [
@@ -369,6 +375,7 @@ const projects = [
     title: "蓝亚官网",
     type: "官网 / 信息架构 / 早期产品项目",
     tags: ["early"],
+    prototypeUrl: "https://nazm3b.axshare.com/",
     summary:
       "围绕公司业务定位和项目展示需求，完成官网信息梳理、页面原型、交互对接和长期维护。",
     points: [
@@ -383,6 +390,7 @@ const projects = [
     title: "Panda 旅行网",
     type: "实习开发 / Web 系统 / 前后端协作",
     tags: ["early"],
+    prototypeUrl: "https://k7xc9u.axshare.com/",
     summary:
       "学生实习阶段参与的旅游网站前后端开发项目，覆盖景点、酒店、购票、用户中心等模块。",
     points: [
@@ -535,27 +543,54 @@ function openDialog(item, kicker = "Case Detail", detailClass = "") {
 
 function openCase(caseId) {
   const item = cases[caseId];
-  if (item) openDialog(item, "Case Detail", "detail-grid--case");
+  if (!item) return;
+
+  const blocks = item.blocks.map((block) => ({
+    ...block,
+    points: [...block.points]
+  }));
+
+  if (item.prototypeUrl) {
+    blocks.push({
+      title: "可查看材料",
+      points: [
+        `<a class="inline-resource-link" href="${item.prototypeUrl}" target="_blank" rel="noreferrer">查看 Axure 原型</a>`
+      ]
+    });
+  }
+
+  openDialog({ ...item, blocks }, "Case Detail", "detail-grid--case");
 }
 
 function openProject(projectId) {
   const item = projects.find((project) => project.id === projectId);
   if (!item) return;
 
+  const blocks = [
+    {
+      title: "项目类型",
+      points: [item.type, item.tags.map((tag) => tagNames[tag]).join(" / ")]
+    },
+    {
+      title: "核心工作",
+      points: item.points
+    }
+  ];
+
+  if (item.prototypeUrl) {
+    blocks.push({
+      title: "可查看材料",
+      points: [
+        `<a class="inline-resource-link" href="${item.prototypeUrl}" target="_blank" rel="noreferrer">查看 Axure 原型</a>`
+      ]
+    });
+  }
+
   openDialog(
     {
       title: item.title,
       summary: item.summary,
-      blocks: [
-        {
-          title: "项目类型",
-          points: [item.type, item.tags.map((tag) => tagNames[tag]).join(" / ")]
-        },
-        {
-          title: "核心工作",
-          points: item.points
-        }
-      ]
+      blocks
     },
     "Project Detail"
   );
@@ -605,7 +640,14 @@ function renderProjects() {
           </div>
           <h3>${project.title}</h3>
           <p>${project.summary}</p>
-          <button class="text-link" type="button" data-open-project="${project.id}">查看项目详情</button>
+          <div class="project-actions">
+            <button class="text-link" type="button" data-open-project="${project.id}">查看项目详情</button>
+            ${
+              project.prototypeUrl
+                ? `<a class="text-link" href="${project.prototypeUrl}" target="_blank" rel="noreferrer">查看原型</a>`
+                : ""
+            }
+          </div>
         </article>
       `
     )
