@@ -545,52 +545,27 @@ function openCase(caseId) {
   const item = cases[caseId];
   if (!item) return;
 
-  const blocks = item.blocks.map((block) => ({
-    ...block,
-    points: [...block.points]
-  }));
-
-  if (item.prototypeUrl) {
-    blocks.push({
-      title: "可查看材料",
-      points: [
-        `<a class="inline-resource-link" href="${item.prototypeUrl}" target="_blank" rel="noreferrer">查看 Axure 原型</a>`
-      ]
-    });
-  }
-
-  openDialog({ ...item, blocks }, "Case Detail", "detail-grid--case");
+  openDialog(item, "Case Detail", "detail-grid--case");
 }
 
 function openProject(projectId) {
   const item = projects.find((project) => project.id === projectId);
   if (!item) return;
 
-  const blocks = [
-    {
-      title: "项目类型",
-      points: [item.type, item.tags.map((tag) => tagNames[tag]).join(" / ")]
-    },
-    {
-      title: "核心工作",
-      points: item.points
-    }
-  ];
-
-  if (item.prototypeUrl) {
-    blocks.push({
-      title: "可查看材料",
-      points: [
-        `<a class="inline-resource-link" href="${item.prototypeUrl}" target="_blank" rel="noreferrer">查看 Axure 原型</a>`
-      ]
-    });
-  }
-
   openDialog(
     {
       title: item.title,
       summary: item.summary,
-      blocks
+      blocks: [
+        {
+          title: "项目类型",
+          points: [item.type, item.tags.map((tag) => tagNames[tag]).join(" / ")]
+        },
+        {
+          title: "核心工作",
+          points: item.points
+        }
+      ]
     },
     "Project Detail"
   );

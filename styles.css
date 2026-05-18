@@ -1235,15 +1235,6 @@ h1 span {
   transform: translateY(-50%);
 }
 
-.inline-resource-link {
-  color: var(--teal);
-  font-weight: 800;
-}
-
-.inline-resource-link:hover {
-  color: var(--teal-dark);
-}
-
 .toast {
   position: fixed;
   right: 24px;
