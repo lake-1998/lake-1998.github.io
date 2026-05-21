@@ -443,12 +443,22 @@ const closeQrButtons = document.querySelectorAll("[data-close-qr]");
 const filterButtons = document.querySelectorAll("[data-filter]");
 const projectList = document.querySelector("[data-project-list]");
 const toast = document.querySelector("[data-toast]");
+const sourceParam = new URLSearchParams(window.location.search).get("source") || "direct";
 
 let activeFilter = "all";
 let toastTimer;
 let modalLockCount = 0;
 let lockedScrollY = 0;
 let previousScrollBehavior = "";
+
+function trackEvent(eventName, data = {}) {
+  if (typeof window.umami?.track !== "function") return;
+
+  window.umami.track(eventName, {
+    source: sourceParam,
+    ...data
+  });
+}
 
 function syncHeader() {
   header.classList.toggle("scrolled", window.scrollY > 12);
@@ -545,12 +555,23 @@ function openCase(caseId) {
   const item = cases[caseId];
   if (!item) return;
 
+  trackEvent("case_detail_open", {
+    case_id: caseId,
+    case_title: item.title
+  });
+
   openDialog(item, "Case Detail", "detail-grid--case");
 }
 
 function openProject(projectId) {
   const item = projects.find((project) => project.id === projectId);
   if (!item) return;
+
+  trackEvent("project_detail_open", {
+    project_id: projectId,
+    project_title: item.title,
+    project_tags: item.tags.join(",")
+  });
 
   openDialog(
     {
@@ -572,6 +593,8 @@ function openProject(projectId) {
 }
 
 function openReflection() {
+  trackEvent("reflection_open");
+
   dialogContent.innerHTML = `
     <p class="section-kicker">Product Thinking</p>
     <h2 id="dialog-title">${reflection.title}</h2>
@@ -594,6 +617,7 @@ function closeCase() {
 }
 
 function openQr() {
+  trackEvent("wechat_qr_open");
   openModal(qrDialog);
 }
 
@@ -619,7 +643,7 @@ function renderProjects() {
             <button class="text-link" type="button" data-open-project="${project.id}">查看项目详情</button>
             ${
               project.prototypeUrl
-                ? `<a class="text-link" href="${project.prototypeUrl}" target="_blank" rel="noreferrer">查看原型</a>`
+                ? `<a class="text-link" href="${project.prototypeUrl}" target="_blank" rel="noreferrer" data-track-event="prototype_open" data-track-project-id="${project.id}" data-track-project-title="${project.title}" data-track-area="project-bank">查看原型</a>`
                 : ""
             }
           </div>
@@ -660,7 +684,12 @@ document.querySelectorAll("[data-open-case]").forEach((button) => {
 });
 
 document.querySelectorAll("[data-copy]").forEach((button) => {
-  button.addEventListener("click", () => copyText(button.dataset.copy));
+  button.addEventListener("click", () => {
+    trackEvent("contact_copy", {
+      copy_kind: button.dataset.copyKind || "unknown"
+    });
+    copyText(button.dataset.copy);
+  });
 });
 
 document.querySelectorAll("[data-open-qr]").forEach((button) => {
@@ -706,14 +735,39 @@ nav.addEventListener("click", () => {
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     activeFilter = button.dataset.filter;
+    trackEvent("project_filter_click", {
+      filter: activeFilter
+    });
     filterButtons.forEach((item) => item.classList.toggle("active", item === button));
     renderProjects();
+  });
+});
+
+document.addEventListener("click", (event) => {
+  const target = event.target.closest("[data-track-event]");
+  if (!target) return;
+
+  trackEvent(target.dataset.trackEvent, {
+    area: target.dataset.trackArea || "",
+    project_id: target.dataset.trackProjectId || "",
+    project_title: target.dataset.trackProjectTitle || ""
   });
 });
 
 window.addEventListener("scroll", syncHeader, { passive: true });
 renderProjects();
 syncHeader();
+
+window.addEventListener(
+  "load",
+  () => {
+    trackEvent("portfolio_entry", {
+      path: window.location.pathname,
+      hash: window.location.hash || ""
+    });
+  },
+  { once: true }
+);
 
 const initialHash = decodeURIComponent(window.location.hash.slice(1));
 
