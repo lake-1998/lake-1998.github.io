@@ -3,6 +3,12 @@ const cases = {
     title: "理想全国职场无人前台 + 智能办公用品领用柜",
     summary:
       "理想职场行政服务原本依赖前台、员工服务中心和管理员线下处理。我从售前方案阶段介入，主导产品方案与业务规则设计，将办公用品领用、物品暂存、交接、借还、拾物招领等流程，拆解为 H5、柜机终端、PC 后台和智能柜协同的自助服务系统，并推进北京职场一期上线交付。",
+    snapshot: {
+      conclusion: "把分散在线下人工处理的职场行政服务，重构成 H5、设备终端、PC 后台和智能柜协同的自助闭环。",
+      role: "售前方案阶段介入，主导产品方案、业务规则、核心流程、后台配置和异常状态设计。",
+      complexity: "复杂点不在“开柜”，而在多角色权限、设备状态、库存口径、通知提醒、线下兜底和上线交付要同时成立。",
+      result: "北京职场一期已上线交付，并沉淀为智能办公用品领用柜、称重柜、履带机和格口柜等后续方案的可复用能力。"
+    },
     metrics: [
       {
         value: "已上线",
@@ -52,6 +58,16 @@ const cases = {
         text: "权限覆盖企业、组织部门、角色、楼宇、楼层、设备组、柜门和仓库，本质是多角色、多空间、多设备的权限模型，可迁移到家庭成员权限、园区/门店设备权限和企业设备管理。"
       }
     ],
+    transfer: {
+      title: "IoT 场景迁移",
+      intro: "这个案例的核心价值不是“柜子”，而是多端控制设备、状态同步、权限规则和异常兜底。它可以被智能家居招聘方理解，也能被储能/新能源设备和企业智能设备团队理解。",
+      rows: [
+        ["成员 / 角色权限", "员工、访客、管理员、楼宇/楼层管理员", "家庭成员、访客、儿童/老人权限，也可迁移到园区、门店和企业设备权限"],
+        ["设备状态同步", "柜门占用、设备在线、出货结果、超时释放", "门锁、传感器、网关、储能设备在线状态、告警状态和控制结果同步"],
+        ["场景自动化", "审批通过后通知、到期提醒、超时释放、管理员待办", "离家/回家联动、设备告警提醒、能耗/储能策略触发、异常自动通知"],
+        ["异常兜底", "无权限、库存不足、柜机离线、出货失败、通知失败", "设备离线、控制失败、传感器异常、自动化失败、现场人工兜底"]
+      ]
+    },
     evidence: [
       {
         title: "现场设备",
@@ -151,6 +167,12 @@ const cases = {
     summary:
       "用户只感知“寄存服务”，但系统侧原本拆成多个小程序、多个入口、多个订单和多套运营口径。我负责一期 C 端感知合并方案，在保留柜机扫码、开柜、续费、结束寄存等现场交易链路的前提下，让用户能在小铁 3 内完成找点、下单、查订单和求助。当前项目处于开发中，待上线后补充数据验证。",
     status: "开发中",
+    snapshot: {
+      conclusion: "把多入口、多订单、多运营口径的寄存服务，先统一成用户可理解的一套 C 端服务入口。",
+      role: "负责需求调研、互跳链路梳理、一期方案设计、PRD 输出、评审收敛、跨团队沟通和验收待办拆解。",
+      complexity: "复杂点是既要让用户感知合并，又不能误伤柜机扫码、开柜、续费、支付回跳等已在线现场交易链路。",
+      result: "项目处于开发中；一期采用 C 端感知合并、底层系统分治、入口分流保护和配置化灰度回退。"
+    },
     metrics: [
       {
         value: "开发中",
@@ -200,6 +222,16 @@ const cases = {
         text: "聚合首页异常可回退原首页，人工寄存异常可隐藏入口，订单入口异常可回退原订单页，入口分流异常时优先保护带参扫码链路。"
       }
     ],
+    transfer: {
+      title: "平台化整合抓手",
+      intro: "这个案例不应被理解为页面合并，而是一次在既有业务边界下做平台化整合的产品判断：前端统一感知，底层保留分治，优先保护现场交易链路。",
+      rows: [
+        ["入口分流", "自然入口进聚合首页，带业务参数入口保留原流程", "避免线下扫码交易被误导，优先保护开柜、寄送、支付等现场动作"],
+        ["订单来源分治", "柜机、人工寄存、配送订单列表可统一展示，详情和操作按来源分发", "不强行统一订单模型，降低一期上线风险"],
+        ["旧链路保护", "柜机扫码、开柜、续费、结束寄存、支付回跳不被新首页改坏", "以交易稳定性作为平台整合的底线"],
+        ["灰度与指标", "按入口、渠道、城市、版本或配置开关放量，关注扫码异常率、订单分发正确率和支付成功率", "用数据判断用户是否更容易找到服务，同时验证旧链路稳定"]
+      ]
+    },
     boards: [
       {
         title: "入口分流规则",
@@ -776,6 +808,31 @@ function closeModal(modal) {
 }
 
 function openDialog(item, kicker = "Case Detail", detailClass = "") {
+  const snapshotMarkup = item.snapshot
+    ? `
+      <section class="case-snapshot" aria-label="30 秒判断">
+        <div class="case-snapshot-head">
+          <span>30 秒判断</span>
+          <strong>${item.snapshot.conclusion}</strong>
+        </div>
+        <div class="snapshot-grid">
+          <article>
+            <span>我的角色</span>
+            <p>${item.snapshot.role}</p>
+          </article>
+          <article>
+            <span>复杂点</span>
+            <p>${item.snapshot.complexity}</p>
+          </article>
+          <article>
+            <span>结果 / 阶段</span>
+            <p>${item.snapshot.result}</p>
+          </article>
+        </div>
+      </section>
+    `
+    : "";
+
   const narrativeMarkup = item.narrative?.length
     ? `
       <section class="case-narrative" aria-label="案例叙事">
@@ -804,6 +861,31 @@ function openDialog(item, kicker = "Case Detail", detailClass = "") {
                 <article class="highlight-card">
                   <strong>${highlight.title}</strong>
                   <p>${highlight.text}</p>
+                </article>
+              `
+            )
+            .join("")}
+        </div>
+      </section>
+    `
+    : "";
+
+  const transferMarkup = item.transfer?.rows?.length
+    ? `
+      <section class="case-transfer" aria-label="${item.transfer.title}">
+        <div class="case-transfer-heading">
+          <span>Transfer</span>
+          <h3>${item.transfer.title}</h3>
+          <p>${item.transfer.intro}</p>
+        </div>
+        <div class="transfer-grid">
+          ${item.transfer.rows
+            .map(
+              (row) => `
+                <article class="transfer-card">
+                  <strong>${row[0]}</strong>
+                  <p>${row[1]}</p>
+                  <span>${row[2]}</span>
                 </article>
               `
             )
@@ -919,10 +1001,12 @@ function openDialog(item, kicker = "Case Detail", detailClass = "") {
     <p class="section-kicker">${kicker}</p>
     <h2 id="dialog-title">${item.title}</h2>
     <p class="dialog-summary">${item.summary}</p>
+    ${snapshotMarkup}
     ${metricsMarkup}
     ${evidenceRailMarkup}
     ${narrativeMarkup}
     ${highlightsMarkup}
+    ${transferMarkup}
     ${boardsMarkup}
     ${evidenceMarkup}
     <div class="detail-grid ${detailClass}">
