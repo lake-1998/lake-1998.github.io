@@ -1,62 +1,269 @@
 const cases = {
   ideal: {
-    title: "企业无人前台 + 智能称重领用柜",
+    title: "理想全国职场无人前台 + 智能办公用品领用柜",
     summary:
-      "把企业前台和行政服务里的高频线下动作拆成系统流程，通过智能柜承接物品交接，通过 SaaS 后台管理权限、记录、通知和异常处理。",
+      "理想职场行政服务原本依赖前台、员工服务中心和管理员线下处理。我从售前方案阶段介入，主导产品方案与业务规则设计，将办公用品领用、物品暂存、交接、借还、拾物招领等流程，拆解为 H5、柜机终端、PC 后台和智能柜协同的自助服务系统，并推进北京职场一期上线交付。",
+    metrics: [
+      {
+        value: "已上线",
+        label: "北京职场一期完成交付"
+      },
+      {
+        value: "多端",
+        label: "H5、柜机终端、PC 后台、智能柜协同"
+      },
+      {
+        value: "8 类",
+        label: "核心库存与异常口径沉淀"
+      }
+    ],
+    narrative: [
+      {
+        title: "不是做一组柜子，而是重构职场服务方式",
+        text:
+          "这个项目的关键不是把行政服务搬到智能柜上，而是把员工、访客、管理员、设备、库存和通知放进同一套可追踪的软件流程里。正常流程要足够顺，异常场景也要能被系统接住。"
+      },
+      {
+        title: "把现场动作拆成软件对象",
+        text:
+          "办公用品、柜门、仓库、员工、访客、管理员、楼宇、楼层、权限、库存、订单和通知都需要被建模。只有对象和状态拆清楚，设备端、H5 和后台才能稳定协同。"
+      },
+      {
+        title: "从客户项目沉淀为可复用能力",
+        text:
+          "项目交付后沉淀出多端入口、库存口径、权限模型、规则配置和异常场景表，可迁移到智能办公用品领用柜、称重柜、履带机和格口柜等后续方案。"
+      }
+    ],
+    highlights: [
+      {
+        title: "主流程",
+        text: "办公用品领用覆盖 H5 申请、审批/积分、可领库存、指定柜机、现场鉴权、设备出货、库存扣减和通知闭环。"
+      },
+      {
+        title: "资源规则",
+        text: "暂存和交接流程重点处理柜门规格、占用、续期、到期提醒、超时释放和管理员兜底。"
+      },
+      {
+        title: "状态一致性",
+        text: "库存被拆为总库存、在柜、非在柜、可领、预占、冻结、盘点校准等口径，避免系统数据和现场实物脱节。"
+      },
+      {
+        title: "权限边界",
+        text: "权限覆盖企业、组织部门、角色、楼宇、楼层、设备组、柜门和仓库，接近智能家居中的家庭、房间、设备和成员权限模型。"
+      }
+    ],
+    evidence: [
+      {
+        title: "现场设备",
+        kind: "现场交付",
+        note: "证明项目不是方案停留，已进入真实办公现场。",
+        src: "./assets/cases/ideal-evidence/ideal-site-cabinet.jpg",
+        alt: "理想职场智能柜现场图"
+      },
+      {
+        title: "H5 多业务入口",
+        kind: "多端体验",
+        note: "员工从统一入口进入领用、暂存、交接、门禁等服务。",
+        src: "./assets/cases/ideal-evidence/ideal-h5-services.jpg",
+        alt: "智慧行政 H5 多业务入口截图"
+      },
+      {
+        title: "后台设备管理",
+        kind: "后台运营",
+        note: "设备在线状态、楼层、业务类型和柜门信息进入后台管理。",
+        src: "./assets/cases/ideal-evidence/ideal-admin-device.jpg",
+        alt: "PC 后台设备管理截图"
+      },
+      {
+        title: "后台规则配置",
+        kind: "后台运营",
+        note: "通过规则配置控制工区、可用时间、节假日和业务限制。",
+        src: "./assets/cases/ideal-evidence/ideal-admin-rules.jpg",
+        alt: "PC 后台规则配置截图"
+      },
+      {
+        title: "办公用品领取流程",
+        kind: "流程设计",
+        note: "串联申请、审批/积分、预占库存、现场鉴权、设备出货、库存扣减和异常处理。",
+        src: "./assets/cases/ideal-evidence/ideal-supplies-flow.jpg",
+        alt: "办公用品领取流程图"
+      },
+      {
+        title: "权限 / 组织 / 设备关系",
+        kind: "对象建模",
+        note: "把企业、组织、员工、访客、角色、楼宇、设备、仓库和柜门关系拆清。",
+        src: "./assets/cases/ideal-evidence/ideal-permission-map.jpg",
+        alt: "权限组织设备关系图"
+      },
+      {
+        title: "库存口径规则",
+        kind: "规则设计",
+        note: "定义总库存、在柜、非在柜、可领、预占、冻结、盘点校准等口径。",
+        src: "./assets/cases/ideal-evidence/ideal-inventory-rules.jpg",
+        alt: "库存口径规则表"
+      },
+      {
+        title: "异常场景表",
+        kind: "异常兜底",
+        note: "覆盖无权限、库存不足、审批失败、柜机离线、出货失败、柜门异常和通知失败。",
+        src: "./assets/cases/ideal-evidence/ideal-exception-table.jpg",
+        alt: "异常场景表"
+      }
+    ],
     blocks: [
       {
-        title: "项目价值",
+        title: "业务背景",
         points: [
-          "把访客储物、员工交接、资产流转、耗材领用统一到可追踪流程",
-          "减少人工登记、提醒和核对动作",
-          "将客户定制场景沉淀成可复用模块"
+          "用户侧是办公用品领取、物品暂存、借还、拾物招领等高频行政服务",
+          "现场侧涉及柜机、库存、权限、楼层、人员和管理员兜底",
+          "系统侧需要打通申请、审批/积分、开柜/出货、库存扣减、通知、异常处理和后台配置"
         ]
       },
       {
         title: "我的职责",
         points: [
-          "梳理员工、访客、管理员、快递员和系统之间的操作关系",
-          "设计业务模块、权限规则、通知规则和后台管理能力",
-          "推动软件、硬件、实施团队对齐需求并完成上线验收"
+          "从售前方案阶段介入，主导产品设计和业务规则规划",
+          "设计办公用品领用、物品暂存、交接、借还、拾物招领等核心流程",
+          "定义库存口径、权限配置、消息通知、后台配置和异常状态",
+          "协同研发、硬件、实施和客户侧完成方案确认、评审收敛和上线推进"
         ]
       },
       {
-        title: "复杂问题",
+        title: "关键规则",
         points: [
-          "不同物品交接场景下的状态流和责任归属不同",
-          "称重识别、多拿、放回、费用归属和补货管理需要同时考虑",
-          "部分动作适合系统自动化，部分动作必须保留管理员介入"
+          "库存口径拆分为总库存、在柜库存、非在柜库存、可领库存、预占库存、线下出库、异常/冻结库存、盘点/校准库存",
+          "权限关系覆盖企业、组织部门、员工、访客、管理员账号、角色、数据权限、操作权限、楼宇/楼层、设备组、柜门和仓库",
+          "异常兜底覆盖无权限、库存不足、审批未通过、积分不足、超时未领取、柜机离线、出货失败、柜门异常、库存盘点不一致和通知失败"
+        ]
+      },
+      {
+        title: "交付结果",
+        points: [
+          "北京职场一期完成上线交付，并进入运营阶段",
+          "支撑员工通过 H5、柜机终端和智能柜完成办公用品领用、暂存、交接、借还、拾物招领等流程",
+          "沉淀出多端入口、后台配置、库存规则、权限模型和异常表，可复用到后续智能办公用品领用柜、称重柜、履带机和格口方案"
         ]
       }
     ]
   },
   locker: {
-    title: "行李综合服务平台：无忧存",
+    title: "小铁 & 无忧存 C 端合并",
     summary:
-      "连接用户、人工寄存点、商户门店、智能寄存柜、平台运营和客服团队，让分散的寄存服务形成统一入口和统一履约规则。",
+      "用户只感知“寄存服务”，但系统侧原本拆成多个小程序、多个入口、多个订单和多套运营口径。我负责一期 C 端感知合并方案，在保留柜机扫码、开柜、续费、结束寄存等现场交易链路的前提下，让用户能在小铁 3 内完成找点、下单、查订单和求助。当前项目处于开发中，待上线后补充数据验证。",
+    status: "开发中",
+    metrics: [
+      {
+        value: "开发中",
+        label: "方案已进入研发推进，暂不写上线结果"
+      },
+      {
+        value: "分治",
+        label: "C 端感知合并，底层订单/支付/财务保留分治"
+      },
+      {
+        value: "保护旧链路",
+        label: "柜机扫码、开柜、续费、支付回跳优先不受影响"
+      }
+    ],
+    narrative: [
+      {
+        title: "用户只想寄存，系统却被拆成多套入口",
+        text:
+          "合并前，用户面对的是同一个寄存需求，但系统侧有多个小程序、多个入口、多个订单和多套运营口径。问题不只是页面跳转多，而是用户找点、下单、查单、求助都被业务边界切碎。"
+      },
+      {
+        title: "一期不做大一统，是产品判断",
+        text:
+          "柜机、人工寄存和配送在订单、支付、履约、设备、商户、财务和后台管理上差异很大。直接统一底层会拉长周期，也可能误伤现场扫码、开柜、寄送、支付等交易链路。"
+      },
+      {
+        title: "先统一用户感知，再保护真实履约差异",
+        text:
+          "一期选择先做 C 端感知合并：自然入口进入小铁 3 聚合首页，用户能找点、下单、查单和求助；带业务参数的线下交易入口继续进入原流程，避免为了统一牺牲现场稳定性。"
+      }
+    ],
+    highlights: [
+      {
+        title: "入口分流",
+        text: "微信搜索、最近使用、公众号菜单、无参数分享卡片等自然入口进聚合首页；柜机码、柜门码、寄送码、支付码、订单详情链接等带参入口保留原业务流程。"
+      },
+      {
+        title: "范围控制",
+        text: "一期做聚合首页、地图/列表、人工网点详情、下单、支付成功、订单入口、客服入口和优惠券前端合并；不做后台大一统。"
+      },
+      {
+        title: "订单分治",
+        text: "列表层可以统一展示，但详情和操作按来源分发：柜机订单进柜机详情，人工订单进人工详情，配送订单进配送详情或承接页。"
+      },
+      {
+        title: "灰度回退",
+        text: "聚合首页异常可回退原首页，人工寄存异常可隐藏入口，订单入口异常可回退原订单页，入口分流异常时优先保护带参扫码链路。"
+      }
+    ],
+    boards: [
+      {
+        title: "入口分流规则",
+        intro: "核心风险是入口误判。尤其线下扫码入口直接关联现场交易，不能被错误导入聚合首页。",
+        columns: ["入口类型", "典型来源", "一期处理"],
+        rows: [
+          ["自然入口", "微信搜索、最近使用、公众号菜单、无业务参数分享卡片、普通运营链接", "进入小铁 3 聚合首页"],
+          ["线下/业务入口", "柜机码、柜门码、寄送码、支付码、渠道二维码、订单详情链接、第三方带参跳转", "保留原业务流程"],
+          ["未识别入口", "无法判断业务类型或缺少明确参数", "默认进聚合首页，同时保留订单和客服入口"]
+        ]
+      },
+      {
+        title: "一期范围与非范围",
+        intro: "用范围控制换上线确定性，避免把平台合并做成跨系统大重构。",
+        columns: ["做什么", "不做什么", "原因"],
+        rows: [
+          ["聚合首页、点位地图/列表、人工网点详情、人工寄存下单、支付成功页", "后台大一统、统一订单模型、统一支付账户", "优先解决用户感知割裂，不触碰高风险底层模型"],
+          ["订单入口、个人中心部分入口、优惠券前端合并、小铁 3 客服入口", "商户体系合并、财务结算合并、旧会员体系迁移", "保留已有履约和财务边界，降低跨团队改造成本"],
+          ["寄存柜点位承接、配送入口承接", "替换柜机扫码、开柜、续费、结束寄存、寄送扫码、支付回跳", "保护现场交易链路，避免影响已在线业务"]
+        ]
+      },
+      {
+        title: "验收与上线后指标",
+        intro: "这个项目的验收不是“页面能打开”，而是新体验可用，同时旧柜机交易稳定。",
+        columns: ["验证对象", "验收口径", "上线后关注"],
+        rows: [
+          ["入口分流", "无参数入口进聚合首页；带参数入口进原流程", "扫码异常率、入口误判反馈"],
+          ["新链路", "首页、地图/列表、详情、下单、支付成功、订单入口、求助路径可用", "地图/列表点击率、详情转化、下单转化、支付成功率"],
+          ["旧流程", "扫码、开柜、续费、结束寄存、寄送扫码、支付回跳不受影响", "支付成功率、柜机订单异常、客服咨询类型变化"]
+        ]
+      }
+    ],
     blocks: [
       {
-        title: "项目价值",
+        title: "真实问题",
         points: [
-          "把分散供给整合为统一服务入口",
-          "兼容人工寄存和智能柜两种履约路径",
-          "建立商户、平台、设备、用户之间的订单责任边界"
+          "用户侧看到的是一个寄存服务需求，系统侧却拆成多个小程序、多个入口、多个订单和多套运营口径",
+          "用户选择困难、订单查询分散、跨端跳转割裂，运营和客服解释成本上升",
+          "柜机、人工寄存、配送在订单、支付、履约、设备、商户、财务和后台管理上差异较大"
         ]
       },
       {
-        title: "我的职责",
+        title: "一期判断",
         points: [
-          "规划用户端、商户端、平台后台和设备侧之间的产品边界",
-          "设计商户入驻、点位管理、价格配置、容量管理、订单接收和结算流程",
-          "拆解预约、待寄存、寄存中、待取件、已完成、超时、异常等订单状态"
+          "先做 C 端感知合并，不做后台大一统",
+          "自然入口进入小铁 3 聚合首页，带业务参数的线下/交易入口保留原流程",
+          "订单列表可以统一展示，但详情和操作仍按柜机、人工寄存、配送来源分治"
         ]
       },
       {
-        title: "复杂问题",
+        title: "范围边界",
         points: [
-          "人工寄存和智能柜流程不同，但用户需要统一体验",
-          "商户营业时间、容量和履约能力会实时变化",
-          "柜机订单需要和设备状态同步，避免支付后无柜可用"
+          "一期包含聚合首页、点位地图/列表、人工网点详情、人工寄存下单与支付成功页、人工订单详情、订单入口、个人中心入口、客服入口和优惠券前端合并",
+          "一期不统一订单模型、支付账户、商户体系和财务结算",
+          "不替换小铁柜机现场扫码、开柜、续费、结束寄存、寄送扫码、支付回跳等高风险链路"
+        ]
+      },
+      {
+        title: "验收与验证",
+        points: [
+          "入口分流必须正确：无业务参数入口进聚合首页，柜机码、柜门码、寄送码、支付码、订单链接等带参入口进原业务流程",
+          "新链路必须走通：聚合首页、地图/列表、详情、下单、支付成功、订单入口和求助路径可用",
+          "旧流程不能受影响：柜机扫码、开柜、续费、结束寄存、寄送扫码和支付回跳优先保护",
+          "上线后重点看找点转化、下单转化、支付成功率、订单分发正确率、扫码异常率和客服咨询类型变化"
         ]
       }
     ]
@@ -88,6 +295,37 @@ const cases = {
           "交付周期短，需求、设备和现场条件变化会互相影响",
           "硬件到货、系统配置、安装联调和客户验收存在串行依赖",
           "需要用节点管理和风险预案替代临场救火"
+        ]
+      }
+    ]
+  },
+  "mold-cabinet": {
+    title: "沃尔核材模具资产管理柜",
+    summary:
+      "面向工业产线模具管理场景，接入工单、权限、RFID 识别、借还记录、模具寿命和维修闭环，降低错领、漏还和不可追溯风险。",
+    blocks: [
+      {
+        title: "项目价值",
+        points: [
+          "把模具领取、归还、维修、寿命和工单约束纳入系统流程",
+          "通过员工权限和工单关系控制可领取模具范围",
+          "让高价值生产资料从人工登记转向可追踪、可复盘的设备管理"
+        ]
+      },
+      {
+        title: "我的职责",
+        points: [
+          "梳理工单、员工、模具、柜门、维修和报废之间的业务关系",
+          "设计模具领取、借还、寿命记录、维修反馈和异常处理流程",
+          "推动客户规则、设备能力和后台配置在方案中对齐"
+        ]
+      },
+      {
+        title: "复杂问题",
+        points: [
+          "同一格口可能管理多个模具，RFID 识别、权限和借还记录必须一致",
+          "模具寿命需要和产量、使用记录、维修记录关联",
+          "工单变更、模具缺失、寿命超限和维修未完成都需要提前设计兜底"
         ]
       }
     ]
@@ -129,23 +367,37 @@ const cases = {
 const projects = [
   {
     id: "ideal-frontdesk",
-    title: "理想汽车 - 无人前台",
-    type: "企业 SaaS / 智慧行政 / 智能柜",
-    tags: ["saas", "iot", "delivery"],
+    title: "理想全国职场无人前台 + 智能办公用品领用柜",
+    type: "主案例 / 已上线 / 智能柜软件系统",
+    tags: ["primary", "hardware"],
     summary:
-      "面向大型企业办公场景，用无人前台和智能柜承接访客储物、员工物品交接、资产上下发、借还、失物招领和快递派发等高频线下动作。",
+      "面向大型企业职场行政场景，将办公用品领用、物品暂存、交接、借还、拾物招领等流程拆解为 H5、柜机终端、PC 后台和智能柜协同的自助服务系统。",
     points: [
-      "梳理访客、员工、管理员、快递员、资产负责人和系统运营人员的角色关系",
-      "设计柜门、物品、订单、人员权限、消息通知、超时规则和异常记录",
-      "推动后台、移动端、设备端和现场交付团队对齐需求",
-      "参与客户现场部署、验收问题跟进和后续方案复用"
+      "从售前方案阶段介入，主导产品设计和业务规则规划",
+      "设计办公用品领用、物品暂存、交接、借还、拾物招领等核心流程",
+      "定义库存口径、权限配置、消息通知、后台配置和异常状态",
+      "协同研发、硬件、实施和客户侧完成方案确认、评审收敛和上线推进"
+    ]
+  },
+  {
+    id: "wuyoucun-merge",
+    title: "小铁 & 无忧存 C 端合并",
+    type: "主案例 / 开发中 / C 端设备服务整合",
+    tags: ["primary", "hardware"],
+    summary:
+      "在保留柜机扫码、开柜、续费、结束寄存等现场交易链路的前提下，统一用户在小铁 3 内找点、下单、查订单和求助的体验。",
+    points: [
+      "梳理微信搜索、最近使用、公众号菜单、柜机码、柜门码、寄送码、支付码、订单链接和第三方带参跳转等入口",
+      "设计自然入口进聚合首页、带业务参数入口保留原流程的分流规则",
+      "规划聚合首页、地图/列表、人工网点详情、下单、支付成功、订单入口和客服入口",
+      "定义新链路验收、旧柜机交易链路保护、灰度回退和上线后指标验证"
     ]
   },
   {
     id: "weighing-cabinet",
     title: "智能称重领用柜",
     type: "办公物资 / 称重识别 / SaaS 后台",
-    tags: ["saas", "iot"],
+    tags: ["hardware"],
     summary:
       "面向企业行政、IT、后勤和办公物资管理场景，把人工登记、线下领用和月底盘点转成可权限控制、可自动识别、可费用归属的领用流程。",
     points: [
@@ -158,8 +410,8 @@ const projects = [
   {
     id: "wuyoucun",
     title: "行李综合服务平台 - 无忧存",
-    type: "平台产品 / 人工寄存 / 智能柜",
-    tags: ["platform", "iot", "delivery"],
+    type: "智能硬件补充 / 平台产品 / 人工寄存与智能柜",
+    tags: ["hardware"],
     summary:
       "连接用户、人工寄存点、商户门店、智能寄存柜、平台运营和客服团队，让用户按位置、营业时间、价格、容量和服务类型选择寄存方式。",
     points: [
@@ -171,9 +423,9 @@ const projects = [
   },
   {
     id: "anker-delivery",
-    title: "安克创新储物柜及耗材管理项目",
-    type: "交付管理 / 智能柜 / 企业办公",
-    tags: ["delivery", "iot", "saas"],
+    title: "安克储物柜及耗材管理项目",
+    type: "智能硬件补充 / 交付管理 / 企业办公",
+    tags: ["hardware"],
     summary:
       "围绕高压交付、现场协同和验收管理展开，重点在于把需求范围、设备批次、系统配置、安装联调和问题闭环压到可执行节奏中。",
     points: [
@@ -186,8 +438,8 @@ const projects = [
   {
     id: "game-task",
     title: "微信游戏圈任务系统",
-    type: "C 端社区 / B 端后台 / ADM",
-    tags: ["platform", "operation"],
+    type: "其他产品经历 / C 端社区 / B 端后台",
+    tags: ["other"],
     prototypeUrl: "https://58q15c.axshare.com/",
     summary:
       "围绕微信游戏内容社区的供给不足问题，设计任务发布、作者激励、内容审核和运营管理能力。",
@@ -201,8 +453,8 @@ const projects = [
   {
     id: "video-topic",
     title: "视频号定向热点征集",
-    type: "内容增长 / 作者激励 / 运营后台",
-    tags: ["operation", "platform"],
+    type: "其他产品经历 / 内容增长 / 作者激励",
+    tags: ["other"],
     prototypeUrl: "https://ot8a0y.axshare.com/",
     summary:
       "面向微信视频号游戏垂类的内容增长需求，设计定向征集机制，帮助运营团队快速组织优质作者围绕指定热点生产内容。",
@@ -216,8 +468,8 @@ const projects = [
   {
     id: "spring-campaign",
     title: "微信游戏圈春节摇心愿活动",
-    type: "活动产品 / 内容任务 / 多项目联动",
-    tags: ["operation", "delivery"],
+    type: "其他产品经历 / 活动产品 / 多项目联动",
+    tags: ["other"],
     summary:
       "结合春节节点、游戏资源和社区内容任务，设计活动参与链路，提升微信游戏圈的用户活跃和内容生产。",
     points: [
@@ -231,7 +483,7 @@ const projects = [
     id: "industrial-iot",
     title: "工业物联网设备管理系统",
     type: "设备接入 / 监控大屏 / 工单管理",
-    tags: ["iot", "saas"],
+    tags: ["hardware"],
     prototypeUrl: "https://p162fu.axshare.com/",
     summary:
       "面向传统制造业工厂的设备运营需求，规划设备接入、监控大屏、告警、维修和工单管理能力。",
@@ -246,7 +498,7 @@ const projects = [
     id: "metro-service",
     title: "地铁便民拾物招领与寄存服务柜",
     type: "公共服务 / 柜体服务 / 地铁场景",
-    tags: ["iot", "delivery"],
+    tags: ["hardware"],
     prototypeUrl: "https://utix05.axshare.com/",
     summary:
       "面向地铁站内便民服务场景，设计失物招领、寄存、雨伞借还和便民物品借领等多种柜体服务。",
@@ -261,7 +513,7 @@ const projects = [
     id: "ai-photo",
     title: "AI 打卡机",
     type: "景区消费 / AI 生成 / 自助设备",
-    tags: ["iot", "platform"],
+    tags: ["hardware"],
     summary:
       "面向景区拍照消费场景，设计拍摄、AI 生成、照片确认、支付和实体出片流程。",
     points: [
@@ -275,7 +527,7 @@ const projects = [
     id: "ai-consumables",
     title: "AI 打卡机设备耗材管理系统",
     type: "耗材管理 / 仓库管理 / 供应链补充",
-    tags: ["iot", "saas"],
+    tags: ["hardware"],
     summary:
       "围绕 AI 打卡机高耗材的运营问题，设计耗材余量监控、景区仓库管理和供应链补充流程。",
     points: [
@@ -289,7 +541,7 @@ const projects = [
     id: "xiao-tie-locker",
     title: "小铁智能寄存柜",
     type: "景区寄存 / 预约 / 存转寄",
-    tags: ["iot", "platform"],
+    tags: ["hardware"],
     summary:
       "面向景区游客行李寄存场景，设计寄存、取件、存转寄和预约等多种服务路径。",
     points: [
@@ -303,7 +555,7 @@ const projects = [
     id: "express-system",
     title: "企业内部一站式快递系统 - 默克",
     type: "企业服务 / 快递对接 / 费控",
-    tags: ["saas"],
+    tags: ["hardware"],
     summary:
       "面向企业内部寄取件管理场景，设计快递服务商对接、员工下单、费控限制和取件通知能力。",
     points: [
@@ -316,8 +568,8 @@ const projects = [
   {
     id: "mold-cabinet",
     title: "工业磨具资产管理柜 - 沃尔核材",
-    type: "工单接入 / 模具领取 / 寿命管理",
-    tags: ["iot", "saas", "delivery"],
+    type: "智能硬件补充 / 工单接入 / 模具领取",
+    tags: ["hardware"],
     summary:
       "面向工业产线模具管理场景，设计工单接入、模具领取、寿命管理、报修和维修流程。",
     points: [
@@ -330,8 +582,8 @@ const projects = [
   {
     id: "rfid-assets",
     title: "资产管理柜（RFID）",
-    type: "企业资产 / RFID / 借还追踪",
-    tags: ["iot", "saas"],
+    type: "智能硬件补充 / RFID / 借还追踪",
+    tags: ["hardware"],
     summary:
       "面向企业文件、贵重工具和可循环资产管理场景，设计 RFID 借还、权限和资产状态追踪能力。",
     points: [
@@ -345,7 +597,7 @@ const projects = [
     id: "office-space",
     title: "办公空间设备管理系统",
     type: "会议室 / 工位 / 储物资源",
-    tags: ["saas", "iot"],
+    tags: ["hardware"],
     summary:
       "围绕会议室、工位和储物柜等办公空间资源，设计预约、联动控制和使用效率管理能力。",
     points: [
@@ -358,8 +610,8 @@ const projects = [
   {
     id: "legal-ticket",
     title: "法务工单协同项目",
-    type: "工单协同 / 企业内控 / 流程留痕",
-    tags: ["saas"],
+    type: "其他产品经历 / 工单协同 / 企业内控",
+    tags: ["other"],
     prototypeUrl: "https://cllcth.axshare.com/",
     summary:
       "围绕企业法务协同场景，规划工单提交、分派、处理、反馈和记录留存流程。",
@@ -373,8 +625,8 @@ const projects = [
   {
     id: "lanya-site",
     title: "蓝亚官网",
-    type: "官网 / 信息架构 / 早期产品项目",
-    tags: ["early"],
+    type: "其他产品经历 / 官网 / 信息架构",
+    tags: ["other"],
     prototypeUrl: "https://nazm3b.axshare.com/",
     summary:
       "围绕公司业务定位和项目展示需求，完成官网信息梳理、页面原型、交互对接和长期维护。",
@@ -388,8 +640,8 @@ const projects = [
   {
     id: "panda-travel",
     title: "Panda 旅行网",
-    type: "实习开发 / Web 系统 / 前后端协作",
-    tags: ["early"],
+    type: "其他产品经历 / Web 系统 / 前后端协作",
+    tags: ["other"],
     prototypeUrl: "https://k7xc9u.axshare.com/",
     summary:
       "学生实习阶段参与的旅游网站前后端开发项目，覆盖景点、酒店、购票、用户中心等模块。",
@@ -403,12 +655,9 @@ const projects = [
 ];
 
 const tagNames = {
-  saas: "B 端 SaaS",
-  iot: "IoT",
-  platform: "平台产品",
-  operation: "运营平台",
-  delivery: "交付管理",
-  early: "早期项目"
+  primary: "主案例",
+  hardware: "智能硬件补充",
+  other: "其他产品经历"
 };
 
 const reflection = {
@@ -425,7 +674,7 @@ const reflection = {
     "做产品久了，会更容易看到风险：合规、体验、漏洞、客服压力、运营成本、研发维护成本。看到风险是必要的，但如果每个风险都按最高优先级处理，系统会变重，节奏会变慢，业务也可能错过窗口。公司在不同阶段有不同压力，产品判断也需要放在具体阶段里看。",
     "所以我现在更在意取舍。一个方案不能只问“这样做对不对”，还要问“现在值不值”。哪些问题必须由系统解决，哪些可以先通过运营流程兜底，哪些需要客服承担解释成本，哪些风险要业务负责人一起判断，哪些成本不能转嫁给用户，这些都应该被摊开讨论。",
     "我不把谨慎包装成完美主义，也不把快看成天然正确。有时候谨慎确实会让我显得想得多，甚至有点畏首畏尾。但在产品工作里，大多数选择都不是单纯的对错题。更常见的是，在有限时间、有限资源和不完整信息里，判断当下应该用什么换什么。",
-    "过去几年，我做过企业 SaaS、智能柜、行李寄存平台、内容任务系统和软硬件交付项目。项目类型不同，但我反复在处理的事情很接近：把一团现场里的混乱，整理成人、流程、规则、状态和责任。",
+    "过去几年，我做过智能柜、行李寄存平台、内容任务系统和软硬件交付项目。项目类型不同，但我反复在处理的事情很接近：把一团现场里的混乱，整理成人、流程、规则、状态和责任，并转成可上线的软件产品方案。",
     "如果概括我的产品方法，大概是：",
     "先找到真实场景，再判断是否值得做；\n先理解人和现场，再设计系统；\n先把代价摊开，再决定用什么换什么；\n最后再进入方案、原型和交付。",
     "我希望自己成为一个在真实约束里还能保持判断的人。能推进事情，也知道什么时候该克制；能看到风险，也不把风险当成停下来的理由。"
@@ -440,12 +689,15 @@ const dialogContent = document.querySelector("[data-dialog-content]");
 const closeCaseButton = document.querySelector("[data-close-case]");
 const qrDialog = document.querySelector("[data-qr-dialog]");
 const closeQrButtons = document.querySelectorAll("[data-close-qr]");
+const evidenceDialog = document.querySelector("[data-evidence-dialog]");
+const evidenceDialogContent = document.querySelector("[data-evidence-dialog-content]");
+const closeEvidenceButton = document.querySelector("[data-close-evidence]");
 const filterButtons = document.querySelectorAll("[data-filter]");
 const projectList = document.querySelector("[data-project-list]");
 const toast = document.querySelector("[data-toast]");
 const sourceParam = new URLSearchParams(window.location.search).get("source") || "direct";
 
-let activeFilter = "all";
+let activeFilter = "primary";
 let toastTimer;
 let modalLockCount = 0;
 let lockedScrollY = 0;
@@ -524,10 +776,155 @@ function closeModal(modal) {
 }
 
 function openDialog(item, kicker = "Case Detail", detailClass = "") {
+  const narrativeMarkup = item.narrative?.length
+    ? `
+      <section class="case-narrative" aria-label="案例叙事">
+        ${item.narrative
+          .map(
+            (section) => `
+              <article>
+                <h3>${section.title}</h3>
+                <p>${section.text}</p>
+              </article>
+            `
+          )
+          .join("")}
+      </section>
+    `
+    : "";
+
+  const highlightsMarkup = item.highlights?.length
+    ? `
+      <section class="case-highlights" aria-label="产品设计抓手">
+        <h3>产品设计抓手</h3>
+        <div class="highlight-grid">
+          ${item.highlights
+            .map(
+              (highlight) => `
+                <article class="highlight-card">
+                  <strong>${highlight.title}</strong>
+                  <p>${highlight.text}</p>
+                </article>
+              `
+            )
+            .join("")}
+        </div>
+      </section>
+    `
+    : "";
+
+  const metricsMarkup = item.metrics?.length
+    ? `
+      <div class="case-metrics" aria-label="案例关键事实">
+        ${item.metrics
+          .map(
+            (metric) => `
+              <div class="case-metric">
+                <strong>${metric.value}</strong>
+                <span>${metric.label}</span>
+              </div>
+            `
+          )
+          .join("")}
+      </div>
+    `
+    : "";
+
+  const evidenceMarkup = item.evidence?.length
+    ? `
+      <section class="evidence-section" aria-label="案例证据材料">
+        <h3>可展示证据</h3>
+        <div class="evidence-grid">
+          ${item.evidence
+            .map(
+              (asset, index) => `
+                <figure class="evidence-card">
+                  <button class="evidence-preview" type="button" data-evidence-index="${index}" aria-label="查看${asset.title}大图">
+                    <img src="${asset.src}" alt="${asset.alt}" loading="lazy" />
+                  </button>
+                  <figcaption>
+                    <span>${asset.kind || "证据材料"}</span>
+                    <strong>${asset.title}</strong>
+                    <small>${asset.note || ""}</small>
+                  </figcaption>
+                </figure>
+              `
+            )
+            .join("")}
+        </div>
+      </section>
+    `
+    : "";
+
+  const evidenceRailMarkup = item.evidence?.length
+    ? `
+      <section class="evidence-rail" aria-label="关键证据预览">
+        <div class="evidence-rail-heading">
+          <span>Evidence</span>
+          <strong>${item.evidence.length} 份关键证据</strong>
+          <p>先看现场、入口、后台和规则，再进入完整拆解。</p>
+        </div>
+        <div class="evidence-rail-list">
+          ${item.evidence
+            .slice(0, 4)
+            .map(
+              (asset, index) => `
+                <button class="evidence-rail-item" type="button" data-evidence-index="${index}">
+                  <img src="${asset.src}" alt="${asset.alt}" loading="lazy" />
+                  <span>${asset.title}</span>
+                </button>
+              `
+            )
+            .join("")}
+        </div>
+      </section>
+    `
+    : "";
+
+  const boardsMarkup = item.boards?.length
+    ? `
+      <section class="case-boards" aria-label="方案证据">
+        <h3>方案证据</h3>
+        ${item.boards
+          .map(
+            (board) => `
+              <article class="case-board">
+                <div class="case-board-heading">
+                  <h4>${board.title}</h4>
+                  <p>${board.intro}</p>
+                </div>
+                <div class="case-board-table" role="table" aria-label="${board.title}">
+                  <div class="case-board-row case-board-head" role="row">
+                    ${board.columns.map((column) => `<strong role="columnheader">${column}</strong>`).join("")}
+                  </div>
+                  ${board.rows
+                    .map(
+                      (row) => `
+                        <div class="case-board-row" role="row">
+                          ${row.map((cell) => `<span role="cell">${cell}</span>`).join("")}
+                        </div>
+                      `
+                    )
+                    .join("")}
+                </div>
+              </article>
+            `
+          )
+          .join("")}
+      </section>
+    `
+    : "";
+
   dialogContent.innerHTML = `
     <p class="section-kicker">${kicker}</p>
     <h2 id="dialog-title">${item.title}</h2>
     <p class="dialog-summary">${item.summary}</p>
+    ${metricsMarkup}
+    ${evidenceRailMarkup}
+    ${narrativeMarkup}
+    ${highlightsMarkup}
+    ${boardsMarkup}
+    ${evidenceMarkup}
     <div class="detail-grid ${detailClass}">
       ${item.blocks
         .map(
@@ -546,6 +943,12 @@ function openDialog(item, kicker = "Case Detail", detailClass = "") {
   `;
 
   dialogContent.querySelector("[data-inline-close-case]")?.addEventListener("click", closeCase);
+  dialogContent.querySelectorAll("[data-evidence-index]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const asset = item.evidence?.[Number(button.dataset.evidenceIndex)];
+      if (asset) openEvidence(asset);
+    });
+  });
   dialog.scrollTop = 0;
   dialogContent.scrollTop = 0;
   openModal(dialog);
@@ -625,6 +1028,25 @@ function closeQr() {
   closeModal(qrDialog);
 }
 
+function openEvidence(asset) {
+  evidenceDialogContent.innerHTML = `
+    <p class="section-kicker">${asset.kind || "Evidence"}</p>
+    <h2 id="evidence-dialog-title">${asset.title}</h2>
+    <p>${asset.note || ""}</p>
+    <img src="${asset.src}" alt="${asset.alt}" />
+  `;
+  trackEvent("case_evidence_open", {
+    evidence_title: asset.title
+  });
+  evidenceDialog.scrollTop = 0;
+  evidenceDialogContent.scrollTop = 0;
+  openModal(evidenceDialog);
+}
+
+function closeEvidence() {
+  closeModal(evidenceDialog);
+}
+
 function renderProjects() {
   const filtered =
     activeFilter === "all" ? projects : projects.filter((project) => project.tags.includes(activeFilter));
@@ -702,6 +1124,7 @@ closeCaseButton.addEventListener("click", closeCase);
 closeQrButtons.forEach((button) => {
   button.addEventListener("click", closeQr);
 });
+closeEvidenceButton.addEventListener("click", closeEvidence);
 
 dialog.addEventListener("click", (event) => {
   if (event.target === dialog) closeCase();
@@ -709,6 +1132,10 @@ dialog.addEventListener("click", (event) => {
 
 qrDialog.addEventListener("click", (event) => {
   if (event.target === qrDialog) closeQr();
+});
+
+evidenceDialog.addEventListener("click", (event) => {
+  if (event.target === evidenceDialog) closeEvidence();
 });
 
 dialog.addEventListener("cancel", (event) => {
@@ -721,8 +1148,14 @@ qrDialog.addEventListener("cancel", (event) => {
   closeQr();
 });
 
+evidenceDialog.addEventListener("cancel", (event) => {
+  event.preventDefault();
+  closeEvidence();
+});
+
 dialog.addEventListener("close", () => releaseModalLock(dialog));
 qrDialog.addEventListener("close", () => releaseModalLock(qrDialog));
+evidenceDialog.addEventListener("close", () => releaseModalLock(evidenceDialog));
 
 menuButton.addEventListener("click", () => {
   header.classList.toggle("open");
