@@ -840,7 +840,7 @@ function openDialog(item, kicker = "Case Detail", detailClass = "") {
               (asset, index) => `
                 <figure class="evidence-card">
                   <button class="evidence-preview" type="button" data-evidence-index="${index}" aria-label="查看${asset.title}大图">
-                    <img src="${asset.src}" alt="${asset.alt}" loading="lazy" />
+                    <img src="${asset.src}" alt="${asset.alt}" loading="eager" decoding="async" />
                   </button>
                   <figcaption>
                     <span>${asset.kind || "证据材料"}</span>
@@ -870,7 +870,7 @@ function openDialog(item, kicker = "Case Detail", detailClass = "") {
             .map(
               (asset, index) => `
                 <button class="evidence-rail-item" type="button" data-evidence-index="${index}">
-                  <img src="${asset.src}" alt="${asset.alt}" loading="lazy" />
+                  <img src="${asset.src}" alt="${asset.alt}" loading="eager" decoding="async" />
                   <span>${asset.title}</span>
                 </button>
               `
