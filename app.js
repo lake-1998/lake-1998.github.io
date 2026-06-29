@@ -483,6 +483,20 @@ const projects = [
     ]
   },
   {
+    id: "decoration-acceptance-ai",
+    title: "装修验收助手",
+    type: "AI 能力证明 / Vibe Coding / C 端工具 Demo",
+    tags: ["ai", "other"],
+    summary:
+      "面向普通装修业主的验收流程助手，用 AI 辅助把“不会验、不会记录、不会跟进整改”的现场问题快速产品化，形成可运行的 App/小程序形态 Demo。",
+    points: [
+      "将装修验收抽象为项目、阶段、验收项、问题工单、整改记录和报告摘要，预留未来 SaaS 化模型",
+      "覆盖建材入场、水电隐蔽、防水/闭水、竣工基础、智能家居安装等默认验收流程",
+      "为每个验收项设计风险说明、怎么验、留证建议、常见问题和通过/不通过/不适用状态",
+      "通过 AI 辅助完成需求拆解、信息架构、交互流程和静态 Demo 实现，验证从想法到可体验原型的效率"
+    ]
+  },
+  {
     id: "video-topic",
     title: "视频号定向热点征集",
     type: "其他产品经历 / 内容增长 / 作者激励",
@@ -689,6 +703,7 @@ const projects = [
 const tagNames = {
   primary: "主案例",
   hardware: "硬件 / IoT 补充",
+  ai: "AI 能力证明",
   other: "其他产品经历"
 };
 
