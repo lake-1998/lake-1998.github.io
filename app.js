@@ -559,7 +559,7 @@ const projects = [
     id: "ai-photo",
     title: "AI 打卡机",
     type: "景区消费 / AI 生成 / 自助设备",
-    tags: ["hardware"],
+    tags: ["hardware", "ai"],
     summary:
       "面向景区拍照消费场景，设计拍摄、AI 生成、照片确认、支付和实体出片流程。",
     points: [
