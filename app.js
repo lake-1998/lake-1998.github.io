@@ -1,8 +1,8 @@
 const cases = {
   ideal: {
-    title: "理想全国职场无人前台 + 智能办公用品领用柜",
+    title: "企业无人前台与智能办公用品领用柜｜理想职场",
     summary:
-      "理想职场行政服务原本依赖前台、员工服务中心和管理员线下处理。我从售前方案阶段介入，主导产品方案与业务规则设计，将办公用品领用、物品暂存、交接、借还、拾物招领等流程，拆解为 H5、柜机终端、PC 后台和智能柜协同的自助服务系统，并推进北京职场一期上线交付。",
+      "面向大型企业职场行政服务，我从售前方案阶段介入，主导产品方案与业务规则设计，将办公用品领用、物品暂存、交接、借还、拾物招领等流程，拆解为 H5、设备终端、PC 后台和智能柜协同的自助服务系统，并推进北京职场一期上线交付。",
     snapshot: {
       conclusion: "把分散在线下人工处理的职场行政服务，重构成 H5、设备终端、PC 后台和智能柜协同的自助闭环。",
       role: "售前方案阶段介入，主导产品方案、业务规则、核心流程、后台配置和异常状态设计。",
@@ -60,7 +60,7 @@ const cases = {
     ],
     transfer: {
       title: "IoT 场景迁移",
-      intro: "这个案例的核心价值不是“柜子”，而是多端控制设备、状态同步、权限规则和异常兜底。它可以被智能家居招聘方理解，也能被储能/新能源设备和企业智能设备团队理解。",
+      intro: "项目沉淀的核心能力是多端控制设备、状态同步、权限规则、场景触发和异常兜底，可迁移到智能家居、储能 / 新能源设备与企业智能设备管理。",
       rows: [
         ["成员 / 角色权限", "员工、访客、管理员、楼宇/楼层管理员", "家庭成员、访客、儿童/老人权限，也可迁移到园区、门店和企业设备权限"],
         ["设备状态同步", "柜门占用、设备在线、出货结果、超时释放", "门锁、传感器、网关、储能设备在线状态、告警状态和控制结果同步"],
@@ -128,44 +128,43 @@ const cases = {
     ],
     blocks: [
       {
-        title: "业务背景",
+        title: "问题与阶段",
         points: [
-          "用户侧是办公用品领取、物品暂存、借还、拾物招领等高频行政服务",
-          "现场侧涉及柜机、库存、权限、楼层、人员和管理员兜底",
-          "系统侧需要打通申请、审批/积分、开柜/出货、库存扣减、通知、异常处理和后台配置"
+          "企业职场行政服务原本依赖前台、员工服务中心和管理员线下登记、确认、交付与通知，流程分散且难以追踪",
+          "项目从售前方案进入北京职场一期落地，覆盖员工、访客、管理员、设备、库存、空间和第三方系统",
+          "当前状态为北京职场一期已上线并进入运营，后续能力继续复用于不同柜型与客户项目"
         ]
       },
       {
         title: "我的职责",
         points: [
-          "从售前方案阶段介入，主导产品设计和业务规则规划",
-          "设计办公用品领用、物品暂存、交接、借还、拾物招领等核心流程",
-          "定义库存口径、权限配置、消息通知、后台配置和异常状态",
-          "协同研发、硬件、实施和客户侧完成方案确认、评审收敛和上线推进"
+          "从售前阶段主导产品规划、核心流程、库存规则、权限配置、消息通知、后台配置和异常状态设计",
+          "覆盖 H5、设备终端、PC 后台与管理员流程，并组织需求评审、范围收敛、验收口径和上线待办",
+          "硬件结构、设备生产、接口研发和本地化部署由对应同事负责，我参与方案确认、边界沟通和项目进度把控"
         ]
       },
       {
-        title: "关键规则",
+        title: "关键决策",
         points: [
-          "库存口径拆分为总库存、在柜库存、非在柜库存、可领库存、预占库存、线下出库、异常/冻结库存、盘点/校准库存",
-          "权限关系覆盖企业、组织部门、员工、访客、管理员账号、角色、数据权限、操作权限、楼宇/楼层、设备组、柜门和仓库",
-          "异常兜底覆盖无权限、库存不足、审批未通过、积分不足、超时未领取、柜机离线、出货失败、柜门异常、库存盘点不一致和通知失败"
+          "先把员工、访客、管理员、楼宇、设备、柜门、物品、仓库、订单和通知建模，再组织多端流程，避免只围绕“开柜”做局部功能",
+          "拆分总库存、在柜、非在柜、可领、预占、冻结和盘点校准口径，明确审批、出货失败与超时未领取时的释放或回滚规则",
+          "按组织、角色、空间和设备定义权限边界，并前置设计设备离线、出货失败、柜门异常、通知失败和人工兜底"
         ]
       },
       {
-        title: "交付结果",
+        title: "结果与证据",
         points: [
-          "北京职场一期完成上线交付，并进入运营阶段",
-          "支撑员工通过 H5、柜机终端和智能柜完成办公用品领用、暂存、交接、借还、拾物招领等流程",
-          "沉淀出多端入口、后台配置、库存/容量规则、权限模型和异常表，可复用到后续智能办公用品领用柜、称重柜、履带机、格口方案，也可迁移到智能家居、储能/新能源设备和企业智能设备管理场景"
+          "北京职场一期已上线，员工可通过 H5、设备终端和智能柜完成领用、暂存、交接、借还与拾物招领等自助流程",
+          "可展示现场设备、H5 服务入口、后台设备与规则配置、核心流程、权限关系、库存口径和异常场景等 8 份脱敏材料",
+          "沉淀多端入口、设备状态、库存/容量、权限模型和异常规则，复用于称重柜、履带机、格口柜等后续方案"
         ]
       }
     ]
   },
   locker: {
-    title: "小铁 & 无忧存 C 端合并",
+    title: "行李寄存平台 C 端整合｜柜机 + 人工寄存 + 配送",
     summary:
-      "用户只感知“寄存服务”，但系统侧原本拆成多个小程序、多个入口、多个订单和多套运营口径。我负责一期 C 端感知合并方案，在保留柜机扫码、开柜、续费、结束寄存等现场交易链路的前提下，让用户能在小铁 3 内完成找点、下单、查订单和求助。当前项目处于开发中，待上线后补充数据验证。",
+      "用户只感知一次行李寄存需求，但柜机、人工寄存与配送在系统侧被拆成多个入口、订单和运营口径。我负责小铁与无忧存一期 C 端感知整合，在保护现场交易链路的前提下，统一找点、下单、查订单和求助体验。项目当前处于开发中。",
     status: "开发中",
     snapshot: {
       conclusion: "把多入口、多订单、多运营口径的寄存服务，先统一成用户可理解的一套 C 端服务入口。",
@@ -224,7 +223,7 @@ const cases = {
     ],
     transfer: {
       title: "平台化整合抓手",
-      intro: "这个案例不应被理解为页面合并，而是一次在既有业务边界下做平台化整合的产品判断：前端统一感知，底层保留分治，优先保护现场交易链路。",
+      intro: "这次整合的重点是前端统一感知、底层保留分治，并以现场交易稳定性作为范围与上线判断的底线。",
       rows: [
         ["入口分流", "自然入口进聚合首页，带业务参数入口保留原流程", "避免线下扫码交易被误导，优先保护开柜、寄送、支付等现场动作"],
         ["订单来源分治", "柜机、人工寄存、配送订单列表可统一展示，详情和操作按来源分发", "不强行统一订单模型，降低一期上线风险"],
@@ -266,36 +265,35 @@ const cases = {
     ],
     blocks: [
       {
-        title: "真实问题",
+        title: "问题与阶段",
         points: [
           "用户侧看到的是一个寄存服务需求，系统侧却拆成多个小程序、多个入口、多个订单和多套运营口径",
           "用户选择困难、订单查询分散、跨端跳转割裂，运营和客服解释成本上升",
-          "柜机、人工寄存、配送在订单、支付、履约、设备、商户、财务和后台管理上差异较大"
+          "项目当前处于开发中：一期解决 C 端感知割裂，尚未形成上线转化数据"
         ]
       },
       {
-        title: "一期判断",
+        title: "我的职责",
         points: [
-          "先做 C 端感知合并，不做后台大一统",
-          "自然入口进入小铁 3 聚合首页，带业务参数的线下/交易入口保留原流程",
-          "订单列表可以统一展示，但详情和操作仍按柜机、人工寄存、配送来源分治"
+          "负责需求调研、现有互跳和业务流程梳理、一期方案设计、PRD 输出与评审问题收敛",
+          "跨研发、设计、运营和客服对齐入口、订单、页面承接和异常处理边界",
+          "拆解新链路验收点、旧流程保护项、灰度回退方案与上线后观察指标"
         ]
       },
       {
-        title: "范围边界",
+        title: "关键决策",
         points: [
-          "一期包含聚合首页、点位地图/列表、人工网点详情、人工寄存下单与支付成功页、人工订单详情、订单入口、个人中心入口、客服入口和优惠券前端合并",
-          "一期不统一订单模型、支付账户、商户体系和财务结算",
-          "不替换小铁柜机现场扫码、开柜、续费、结束寄存、寄送扫码、支付回跳等高风险链路"
+          "一期先做 C 端感知合并，不统一订单模型、支付账户、商户体系、财务结算和后台管理",
+          "无业务参数的自然入口进入聚合首页；柜机码、柜门码、寄送码、支付码等带参入口继续承接原业务流程",
+          "订单列表统一展示，详情和操作按柜机、人工寄存、配送来源分发，并为首页、人工入口和订单入口保留配置化回退"
         ]
       },
       {
-        title: "验收与验证",
+        title: "结果与证据",
         points: [
-          "入口分流必须正确：无业务参数入口进聚合首页，柜机码、柜门码、寄送码、支付码、订单链接等带参入口进原业务流程",
-          "新链路必须走通：聚合首页、地图/列表、详情、下单、支付成功、订单入口和求助路径可用",
-          "旧流程不能受影响：柜机扫码、开柜、续费、结束寄存、寄送扫码和支付回跳优先保护",
-          "上线后重点看找点转化、下单转化、支付成功率、订单分发正确率、扫码异常率和客服咨询类型变化"
+          "方案已进入研发推进，当前结果只表述为“开发中”，不将设计完成写成上线成果",
+          "可展示入口分流规则、一期范围与非范围、订单来源分发、灰度回退和三类验收口径等方案证据",
+          "上线后将以找点与下单转化、支付成功率、订单分发正确率、扫码异常率和客服咨询变化判断整合效果"
         ]
       }
     ]
@@ -399,8 +397,8 @@ const cases = {
 const projects = [
   {
     id: "ideal-frontdesk",
-    title: "理想全国职场无人前台 + 智能办公用品领用柜",
-    type: "主案例 / 已上线 / 智能柜软件系统",
+    title: "企业无人前台与智能办公用品领用柜｜理想职场",
+    type: "主案例 / 已上线 / 企业智能设备",
     tags: ["primary", "hardware"],
     summary:
       "面向大型企业职场行政场景，将办公用品领用、物品暂存、交接、借还、拾物招领等流程拆解为 H5、柜机终端、PC 后台和智能柜协同的自助服务系统。",
@@ -413,8 +411,8 @@ const projects = [
   },
   {
     id: "wuyoucun-merge",
-    title: "小铁 & 无忧存 C 端合并",
-    type: "主案例 / 开发中 / C 端设备服务整合",
+    title: "行李寄存平台 C 端整合｜柜机 + 人工寄存 + 配送",
+    type: "主案例 / 开发中 / 小铁 × 无忧存",
     tags: ["primary", "hardware"],
     summary:
       "在保留柜机扫码、开柜、续费、结束寄存等现场交易链路的前提下，统一用户在小铁 3 内找点、下单、查订单和求助的体验。",
@@ -455,11 +453,11 @@ const projects = [
   },
   {
     id: "anker-delivery",
-    title: "安克储物柜及耗材管理项目",
-    type: "硬件 / IoT 补充 / 交付管理 / 企业办公",
+    title: "企业储物柜与耗材管理交付｜安克",
+    type: "硬件 / IoT 补充 / 17 天交付 400 台",
     tags: ["hardware"],
     summary:
-      "围绕高压交付、现场协同和验收管理展开，重点在于把需求范围、设备批次、系统配置、安装联调和问题闭环压到可执行节奏中。",
+      "在 17 天周期内推进 400 台设备交付，把需求范围、设备批次、系统配置、安装联调和问题闭环压到同一套可执行节奏中。",
     points: [
       "拆分交付范围、批次计划、联调节点和验收口径",
       "协调产品、硬件、软件、实施和客户侧资源",
@@ -708,11 +706,9 @@ const tagNames = {
 };
 
 const reflection = {
-  title: "我不是一开始就会做产品的人",
+  title: "我的产品判断：真实场景、边界与取舍",
   paragraphs: [
-    "我不是一开始就会做产品的人。",
-    "以前我很容易急着给答案。看到问题，就想马上纠正；看到混乱，就想立刻建立规则；看到别人走弯路，也会忍不住把自己的判断塞过去。后来经历过一些失败沟通，我慢慢意识到，判断得快，不代表理解得深；替别人规划路径，也不一定真的解决了对方的问题。",
-    "这个变化，后来影响了我做产品的方式。",
+    "我做产品时会先把问题放回真实场景：这件事为什么发生，现场里有哪些人，他们各自在意什么、承担什么，规则不清最后会让谁付出成本。判断得快不代表理解得深，先理解问题，才能决定系统要不要改变。",
     "一个需求被提出来，我会先停一停，会先把问题往前追一层：这件事为什么发生，现场里有哪些人，他们各自在意什么、承担什么，规则如果不清楚，最后会让谁付出成本。很多产品问题表面上是流程、权限、状态、异常处理，背后其实是预期没有对齐，责任边界没有说清楚。",
     "我也会把奥卡姆剃刀的思路用到需求判断里：如无必要，勿增实体。",
     "放在产品里，它对我的提醒很具体：不要轻易给系统增加新的入口、状态、角色和规则。一个需求如果只能在会议里讲通，却找不到至少三个真实发生的场景，我通常不会急着推进。很多需求听起来都有道理，但落到现场，可能只是一次抱怨、一个临时想法，或者某个声音被放大了。系统每多一个东西，后面都会有人理解它、维护它、解释它，并在异常发生时为它兜底。",
@@ -827,61 +823,29 @@ function openDialog(item, kicker = "Case Detail", detailClass = "") {
     ? `
       <section class="case-snapshot" aria-label="30 秒判断">
         <div class="case-snapshot-head">
-          <span>30 秒判断</span>
+          <span>一句话结论</span>
           <strong>${item.snapshot.conclusion}</strong>
-        </div>
-        <div class="snapshot-grid">
-          <article>
-            <span>我的角色</span>
-            <p>${item.snapshot.role}</p>
-          </article>
-          <article>
-            <span>复杂点</span>
-            <p>${item.snapshot.complexity}</p>
-          </article>
-          <article>
-            <span>结果 / 阶段</span>
-            <p>${item.snapshot.result}</p>
-          </article>
         </div>
       </section>
     `
     : "";
 
-  const narrativeMarkup = item.narrative?.length
+  const blocksMarkup = item.blocks?.length
     ? `
-      <section class="case-narrative" aria-label="案例叙事">
-        ${item.narrative
+      <div class="detail-grid ${detailClass}">
+        ${item.blocks
           .map(
-            (section) => `
-              <article>
-                <h3>${section.title}</h3>
-                <p>${section.text}</p>
-              </article>
+            (block, index) => `
+              <section class="detail-block">
+                <h3><span class="detail-index">${String(index + 1).padStart(2, "0")}</span>${block.title}</h3>
+                <ul>
+                  ${block.points.map((point) => `<li>${point}</li>`).join("")}
+                </ul>
+              </section>
             `
           )
           .join("")}
-      </section>
-    `
-    : "";
-
-  const highlightsMarkup = item.highlights?.length
-    ? `
-      <section class="case-highlights" aria-label="产品设计抓手">
-        <h3>产品设计抓手</h3>
-        <div class="highlight-grid">
-          ${item.highlights
-            .map(
-              (highlight) => `
-                <article class="highlight-card">
-                  <strong>${highlight.title}</strong>
-                  <p>${highlight.text}</p>
-                </article>
-              `
-            )
-            .join("")}
-        </div>
-      </section>
+      </div>
     `
     : "";
 
@@ -929,27 +893,29 @@ function openDialog(item, kicker = "Case Detail", detailClass = "") {
 
   const evidenceMarkup = item.evidence?.length
     ? `
-      <section class="evidence-section" aria-label="案例证据材料">
-        <h3>可展示证据</h3>
-        <div class="evidence-grid">
-          ${item.evidence
-            .map(
-              (asset, index) => `
-                <figure class="evidence-card">
-                  <button class="evidence-preview" type="button" data-evidence-index="${index}" aria-label="查看${asset.title}大图">
-                    <img src="${asset.src}" alt="${asset.alt}" loading="eager" decoding="async" />
-                  </button>
-                  <figcaption>
-                    <span>${asset.kind || "证据材料"}</span>
-                    <strong>${asset.title}</strong>
-                    <small>${asset.note || ""}</small>
-                  </figcaption>
-                </figure>
-              `
-            )
-            .join("")}
-        </div>
-      </section>
+      <details class="case-depth">
+        <summary>全部证据材料（${item.evidence.length}）</summary>
+        <section class="evidence-section" aria-label="案例证据材料">
+          <div class="evidence-grid">
+            ${item.evidence
+              .map(
+                (asset, index) => `
+                  <figure class="evidence-card">
+                    <button class="evidence-preview" type="button" data-evidence-index="${index}" aria-label="查看${asset.title}大图">
+                      <img src="${asset.src}" alt="${asset.alt}" loading="lazy" decoding="async" />
+                    </button>
+                    <figcaption>
+                      <span>${asset.kind || "证据材料"}</span>
+                      <strong>${asset.title}</strong>
+                      <small>${asset.note || ""}</small>
+                    </figcaption>
+                  </figure>
+                `
+              )
+              .join("")}
+          </div>
+        </section>
+      </details>
     `
     : "";
 
@@ -980,35 +946,37 @@ function openDialog(item, kicker = "Case Detail", detailClass = "") {
 
   const boardsMarkup = item.boards?.length
     ? `
-      <section class="case-boards" aria-label="方案证据">
-        <h3>方案证据</h3>
-        ${item.boards
-          .map(
-            (board) => `
-              <article class="case-board">
-                <div class="case-board-heading">
-                  <h4>${board.title}</h4>
-                  <p>${board.intro}</p>
-                </div>
-                <div class="case-board-table" role="table" aria-label="${board.title}">
-                  <div class="case-board-row case-board-head" role="row">
-                    ${board.columns.map((column) => `<strong role="columnheader">${column}</strong>`).join("")}
+      <details class="case-depth">
+        <summary>查看方案证据（${item.boards.length} 组）</summary>
+        <section class="case-boards" aria-label="方案证据">
+          ${item.boards
+            .map(
+              (board) => `
+                <article class="case-board">
+                  <div class="case-board-heading">
+                    <h4>${board.title}</h4>
+                    <p>${board.intro}</p>
                   </div>
-                  ${board.rows
-                    .map(
-                      (row) => `
-                        <div class="case-board-row" role="row">
-                          ${row.map((cell) => `<span role="cell">${cell}</span>`).join("")}
-                        </div>
-                      `
-                    )
-                    .join("")}
-                </div>
-              </article>
-            `
-          )
-          .join("")}
-      </section>
+                  <div class="case-board-table" role="table" aria-label="${board.title}">
+                    <div class="case-board-row case-board-head" role="row">
+                      ${board.columns.map((column) => `<strong role="columnheader">${column}</strong>`).join("")}
+                    </div>
+                    ${board.rows
+                      .map(
+                        (row) => `
+                          <div class="case-board-row" role="row">
+                            ${row.map((cell) => `<span role="cell">${cell}</span>`).join("")}
+                          </div>
+                        `
+                      )
+                      .join("")}
+                  </div>
+                </article>
+              `
+            )
+            .join("")}
+        </section>
+      </details>
     `
     : "";
 
@@ -1017,27 +985,12 @@ function openDialog(item, kicker = "Case Detail", detailClass = "") {
     <h2 id="dialog-title">${item.title}</h2>
     <p class="dialog-summary">${item.summary}</p>
     ${snapshotMarkup}
+    ${blocksMarkup}
     ${metricsMarkup}
     ${evidenceRailMarkup}
-    ${narrativeMarkup}
-    ${highlightsMarkup}
     ${transferMarkup}
     ${boardsMarkup}
     ${evidenceMarkup}
-    <div class="detail-grid ${detailClass}">
-      ${item.blocks
-        .map(
-          (block, index) => `
-            <section class="detail-block">
-              <h3><span class="detail-index">${String(index + 1).padStart(2, "0")}</span>${block.title}</h3>
-              <ul>
-                ${block.points.map((point) => `<li>${point}</li>`).join("")}
-              </ul>
-            </section>
-          `
-        )
-        .join("")}
-    </div>
     <button class="dialog-close-action" type="button" data-inline-close-case>关闭</button>
   `;
 
